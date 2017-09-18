@@ -1,0 +1,19 @@
+{
+    "name": "learn/bean",
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "authors": [
+        {
+            "name": "Acorns",
+            "email": "343125118@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Excel\\" : "src/Excel",
+            "Export\\" : "src/Export",
+            "Import\\" : "src/Import"
+        }
+    }
+}
