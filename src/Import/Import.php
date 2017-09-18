@@ -16,7 +16,7 @@ class Import
         $file = $_FILES;
         $excel = new Excel($file['file']['tmp_name']);
         $res = $excel->readExcel();
-        $r = $res->readSheet($res->sheetNames[0]);
+        $r = $res->readSheet($res->sheetNames[0])->getData();
         var_dump($r);
     }
 }
