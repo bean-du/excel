@@ -1,6 +1,6 @@
 {
     "name": "bean/excel",
-    "description": "This package help you to read Excel and export Excel",
+    "description": "This package help you to import Excel and export Excel",
     "keywords": ["Excel"],
     "homepage": "https://github.com/bean-du/excel",
     "license": "MIT",
