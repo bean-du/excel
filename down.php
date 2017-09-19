@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
 require 'vendor/autoload.php';
 use Excel\ExcelWriter;
 /**
@@ -11,7 +13,7 @@ use Excel\ExcelWriter;
 function index(){
     $writer = new ExcelWriter();
 
-    for ($i = 0; $i < 10000; $i++){
+    for ($i = 0; $i < 100; $i++){
         for ($j = 0; $j < 10; $j++){
             $data[$i][$j] = 'test ['.$i.']+['.$j.']';
         }
