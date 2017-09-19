@@ -11,6 +11,10 @@ class ComposerStaticInit8530770159d9f435380bd9a6f66f195c
         array (
             'Import\\' => 7,
         ),
+        'F' => 
+        array (
+            'Filter\\' => 7,
+        ),
         'E' => 
         array (
             'Export\\' => 7,
@@ -22,6 +26,10 @@ class ComposerStaticInit8530770159d9f435380bd9a6f66f195c
         'Import\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Import',
+        ),
+        'Filter\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Filter',
         ),
         'Export\\' => 
         array (

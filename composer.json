@@ -13,7 +13,8 @@
         "psr-4": {
             "Excel\\" : "src/Excel",
             "Export\\" : "src/Export",
-            "Import\\" : "src/Import"
+            "Import\\" : "src/Import",
+            "Filter\\" : "src/Filter"
         }
     }
 }

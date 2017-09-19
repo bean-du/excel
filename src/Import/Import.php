@@ -1,22 +1,26 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
- * Date: 2017/9/18
- * Time: 12:49
+ * User: Acorn
+ * Date: 2017/9/19
+ * Time: 10:13
+ * Email: 343125118@qq.com
  */
 
 namespace Import;
-use Excel\Excel;
+use Excel\ExcelReader;
 
 class Import
 {
     public function import()
     {
         $file = $_FILES;
-        $excel = new Excel($file['file']['tmp_name']);
-        $res = $excel->readExcel();
-        $r = $res->readSheet($res->sheetNames[0])->getData();
-        var_dump($r);
+        if ($file['file']['tmp_name']){
+            $excel = new ExcelReader($file['file']['tmp_name']);
+            $res = $excel->readExcel()->readSheet()->getData();
+            var_dump($res);
+        }else{
+            echo '文件上传失败';
+        }
     }
 }

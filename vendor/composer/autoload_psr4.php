@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Import\\' => array($baseDir . '/src/Import'),
+    'Filter\\' => array($baseDir . '/src/Filter'),
     'Export\\' => array($baseDir . '/src/Export'),
     'Excel\\' => array($baseDir . '/src/Excel'),
 );
