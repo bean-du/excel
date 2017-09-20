@@ -935,7 +935,7 @@ class PHPExcel_Calculation {
 												 'functionCall'		=>	'PHPExcel_Calculation_Engineering::IMSUM',
 												 'argumentCount'	=>	'1+'
 												),
-				'INDEX'					=> array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,
+				'importExample' => array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,
 												 'functionCall'		=>	'PHPExcel_Calculation_LookupRef::INDEX',
 												 'argumentCount'	=>	'1-4'
 												),

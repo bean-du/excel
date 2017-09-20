@@ -2566,7 +2566,7 @@
     $p_header['stored_filename'] = $p_filedescr['stored_filename'];
     $p_header['extra'] = '';
     $p_header['status'] = 'ok';
-    $p_header['index'] = -1;
+    $p_header['importExample'] = -1;
 
     // ----- Look for regular file
     if ($p_filedescr['type']=='file') {
@@ -3196,7 +3196,7 @@
         $this->privSwapBackMagicQuotes();
         return $v_result;
       }
-      $v_header['index'] = $i;
+      $v_header['importExample'] = $i;
 
       // ----- Get the only interesting attributes
       $this->privConvertHeader2FileInfo($v_header, $p_list[$i]);
@@ -3247,7 +3247,7 @@
     $p_info['mtime'] = $p_header['mtime'];
     $p_info['comment'] = $p_header['comment'];
     $p_info['folder'] = (($p_header['external']&0x00000010)==0x00000010);
-    $p_info['index'] = $p_header['index'];
+    $p_info['importExample'] = $p_header['importExample'];
     $p_info['status'] = $p_header['status'];
     $p_info['crc'] = $p_header['crc'];
 
@@ -3356,7 +3356,7 @@
       }
 
       // ----- Store the index
-      $v_header['index'] = $i;
+      $v_header['importExample'] = $i;
 
       // ----- Store the file position
       $v_pos_entry = ftell($this->zip_fd);
@@ -4736,7 +4736,7 @@
 
 
       // ----- Store the index
-      $v_header_list[$v_nb_extracted]['index'] = $i;
+      $v_header_list[$v_nb_extracted]['importExample'] = $i;
 
       // ----- Look for the specific extract rules
       $v_found = false;

@@ -281,7 +281,7 @@ class PHPExcel_Writer_Excel5_Parser
 			  'SIGN'            => array(  26,    1,    1,    0 ),
 			  'ROUND'           => array(  27,    2,    1,    0 ),
 			  'LOOKUP'          => array(  28,   -1,    0,    0 ),
-			  'INDEX'           => array(  29,   -1,    0,    1 ),
+			  'importExample' => array(  29,   -1,    0,    1 ),
 			  'REPT'            => array(  30,    2,    1,    0 ),
 			  'MID'             => array(  31,    3,    1,    0 ),
 			  'LEN'             => array(  32,    1,    1,    0 ),

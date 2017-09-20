@@ -68,6 +68,7 @@ class ExcelReader
             $this->sheetNumber = $this->tables->getSheetCount();
             // 获取表格所有的sheet的名称，返回数组
             $this->sheetNames = $this->tables->getSheetNames();
+
             return $this;
         }else{
             return false;
@@ -87,6 +88,7 @@ class ExcelReader
         $this->column = PHPExcel_Cell::columnIndexFromString($this->sheetData->getHighestColumn());
         // 读取总行数
         $this->row = $this->sheetData->getHighestRow();
+
         return $this;
 	}
 

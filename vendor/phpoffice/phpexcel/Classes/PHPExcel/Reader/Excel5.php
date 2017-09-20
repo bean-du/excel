@@ -5785,7 +5785,7 @@ class PHPExcel_Reader_Excel5 extends PHPExcel_Reader_Abstract implements PHPExce
 			case  13: $function = 'DOLLAR';			break;
 			case  14: $function = 'FIXED';			break;
 			case  28: $function = 'LOOKUP';			break;
-			case  29: $function = 'INDEX';			break;
+			case  29: $function = 'importExample';			break;
 			case  36: $function = 'AND';			break;
 			case  37: $function = 'OR';				break;
 			case  46: $function = 'VAR';			break;

@@ -563,8 +563,8 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
 			if (isset($worksheet->Table->Column)) {
 				foreach($worksheet->Table->Column as $columnData) {
 					$columnData_ss = $columnData->attributes($namespaces['ss']);
-					if (isset($columnData_ss['Index'])) {
-						$columnID = PHPExcel_Cell::stringFromColumnIndex($columnData_ss['Index']-1);
+					if (isset($columnData_ss['importExample'])) {
+						$columnID = PHPExcel_Cell::stringFromColumnIndex($columnData_ss['importExample']-1);
 					}
 					if (isset($columnData_ss['Width'])) {
 						$columnWidth = $columnData_ss['Width'];
@@ -581,8 +581,8 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
 				foreach($worksheet->Table->Row as $rowData) {
 					$rowHasData = false;
 					$row_ss = $rowData->attributes($namespaces['ss']);
-					if (isset($row_ss['Index'])) {
-						$rowID = (integer) $row_ss['Index'];
+					if (isset($row_ss['importExample'])) {
+						$rowID = (integer) $row_ss['importExample'];
 					}
 //					echo '<b>Row '.$rowID.'</b><br />';
 
@@ -590,8 +590,8 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
 					foreach($rowData->Cell as $cell) {
 
 						$cell_ss = $cell->attributes($namespaces['ss']);
-						if (isset($cell_ss['Index'])) {
-							$columnID = PHPExcel_Cell::stringFromColumnIndex($cell_ss['Index']-1);
+						if (isset($cell_ss['importExample'])) {
+							$columnID = PHPExcel_Cell::stringFromColumnIndex($cell_ss['importExample']-1);
 						}
 						$cellRange = $columnID.$rowID;
 
