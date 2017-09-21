@@ -10,6 +10,7 @@ use PHPExcel_Cell_DataType;
 /**
 * 
 */
+define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
 class ExcelReader
 {
     // 传入的文件名称
@@ -46,8 +47,9 @@ class ExcelReader
      */
     public function readExcel()
     {
+//        var_dump($this->fileName);exit;
         // 获取传入文件的类型
-        $fileType = PHPExcel_IOFactory::identify($this->fileName);
+        $fileType = PHPExcel_IOFactory::identify(BASE_PATH.$this->fileName);
         // 设置允许的文件类型
         $inputFileType = ['Excel5','Excel2007','Excel2003XML','OOCalc','CSV'];
         // 判断是否为允许的类型，是不允许的类型直接return  false
@@ -60,9 +62,9 @@ class ExcelReader
             }
             // 加载整个表格
             try {
-                $this->tables = $this->reader->load($this->fileName);
+                $this->tables = $this->reader->load(BASE_PATH.$this->fileName);
             }catch (PHPExcel_Reader_Exception $e){
-                die('Error loading file "'.pathinfo($this->fileName).'": '.$e->getMessage());
+                die('Error loading file "'.pathinfo(BASE_PATH.$this->fileName).'": '.$e->getMessage());
             }
             // 获取表格的sheet总数
             $this->sheetNumber = $this->tables->getSheetCount();
