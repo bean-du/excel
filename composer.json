@@ -17,8 +17,6 @@
     "autoload": {
         "psr-4": {
             "Excel\\" : "src/Excel",
-            "Export\\" : "src/Export",
-            "Import\\" : "src/Import",
             "Filter\\" : "src/Filter",
             "Helpers\\" : "src/Helpers"
         }
