@@ -41,7 +41,7 @@ class ExcelWriter
     }
 
     /**
-     * 设置字体颜色
+     * 设置字体大小
      * @param array $columns
      * @param $size
      * @return $this
@@ -57,7 +57,7 @@ class ExcelWriter
     }
 
     /**
-     * 设置单元格字体颜色
+     * 设置字体颜色
      * @param array $columns
      * @param $color
      * @return $this
@@ -134,6 +134,7 @@ class ExcelWriter
         return $this;
     }
 
+
     /**
      * 设置单元格宽度，如果不指定宽度，将自动适应宽度
      * @param $columns
@@ -157,6 +158,18 @@ class ExcelWriter
     }
 
     /**
+     * 设置行高
+     * @param array $rows
+     * @param $height
+     */
+    public function setLineHeight(array $rows,$height)
+    {
+        for ($i = 0; $i < count($rows); $i++){
+            $this->excel->getActiveSheet()->getRowDimension($rows[$i])->setRowHeight($height);
+        }
+    }
+
+    /**
      * 合并单元格
      * @param $start
      * @param $end
@@ -169,6 +182,86 @@ class ExcelWriter
     }
 
     /**
+     * 拆分单元格
+     * @param $start
+     * @param $end
+     * @return $this
+     */
+    public function unmergeCells($start,$end)
+    {
+        $this->excel->getActiveSheet()->unmergeCells($start.':'.$end);
+        return $this;
+    }
+
+    /**
+     * 设置边框
+     *  BORDER_NONE				    = 'none'                   无边框
+     *  BORDER_DASHDOT			    = 'dashDot'                点画线
+     *  BORDER_DASHDOTDOT			= 'dashDotDot'             双点划线
+     *  BORDER_DASHED				= 'dashed'                 虚线
+     *  BORDER_DOTTED				= 'dotted'                 点虚线
+     *  BORDER_DOUBLE				= 'double'                 双虚线
+     *  BORDER_HAIR				    = 'hair'                   细线
+     *  BORDER_MEDIUM				= 'medium'                 中等
+     *  BORDER_MEDIUMDASHDOT		= 'mediumDashDot'          中等点划线
+     *  BORDER_MEDIUMDASHDOTDOT	    = 'mediumDashDotDot'       中等双点划线
+     *  BORDER_MEDIUMDASHED		    = 'mediumDashed'           中等虚线
+     *  BORDER_SLANTDASHDOT		    = 'slantDashDot'           斜点划线
+     *  BORDER_THICK				= 'thick'                  粗
+     *  BORDER_THIN				    = 'thin'                   细
+     * @param $start 开始单元格
+     * @param $end   结束单元格
+     * @param $type  边框类型
+     */
+    public function setBorders($start,$end,$type)
+    {
+        $setter = $this->excel->getActiveSheet()->getStyle($start.':'.$end)->getBorders()->getAllBorders();
+        switch ($type){
+            case 'none' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_NONE);
+                break;
+            case 'thin' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_THIN);
+                break;
+            case 'dashDot' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_DASHDOT);
+                break;
+            case 'dashDotDot' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_DASHDOTDOT);
+                break;
+            case 'dashed' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_DASHED);
+                break;
+            case 'dotted' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_DOTTED);
+                break;
+            case 'double' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_DOUBLE);
+                break;
+            case 'hair' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_HAIR);
+                break;
+            case 'medium' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_MEDIUM);
+                break;
+            case 'mediumDashDot' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_MEDIUMDASHDOT);
+                break;
+            case 'mediumDashDotDot' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_MEDIUMDASHDOTDOT);
+                break;
+            case 'mediumDashed' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_MEDIUMDASHED);
+                break;
+            case 'slantDashDot' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_SLANTDASHDOT);
+                break;
+            case 'thick' :
+                $setter->setBorderStyle(\PHPExcel_Style_Border::BORDER_THICK);
+                break;
+        }
+    }
+    /**
      * 设置当前激活的sheet
      * @param $index
      * @return $this
@@ -178,6 +271,28 @@ class ExcelWriter
         $this->excel->setActiveSheetIndex($index);
         return $this;
     }
+
+    /**
+     * 锁定表头
+     * @param string $cell
+     * @return $this
+     */
+    public function freezePane($cell = '')
+    {
+        $this->excel->getActiveSheet()->freezePane($cell);
+        return $this;
+    }
+
+    /**
+     * 接触表头锁定
+     * @return $this
+     */
+    public function unfreezePane()
+    {
+        $this->excel->getActiveSheet()->unfreezePane();
+        return $this;
+    }
+
 
     /**
      * 设置当前激活的sheet的名称
